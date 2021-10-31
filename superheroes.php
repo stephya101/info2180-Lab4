@@ -1,5 +1,10 @@
 <?php
 
+include ('index.html');
+include ('styles.css');
+
+echo "<body style='background-color:gray'>";
+
 $superheroes = [
   [
       "id" => 1,
