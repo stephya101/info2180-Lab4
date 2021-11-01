@@ -1,0 +1,38 @@
+
+body{
+    background-color: rgb(211, 208, 197);
+
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    max-width: auto;
+    
+}
+
+
+header{
+    Display: flex;
+    background: rgb(35, 35, 172);
+    justify-content: center;
+    margin-bottom: 20px;
+
+}
+
+.form-field > label {
+    display: block;
+    margin-bottom: 2px;
+}
+
+input[type=text]{
+    width:130%;
+    margin:8px 0;
+    padding:8px;
+    box-sizing:border-box;
+  }
+
+h1 {
+    color: #fff;
+}
+

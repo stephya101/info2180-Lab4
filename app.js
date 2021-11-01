@@ -1,31 +1,18 @@
-window.onload = function() {
+  window.addEventListener('load', ()=>{
+    document.querySelector("button#loadSearchBtn").addEventListener("click", (event)=>{
+      event.preventDefault();
+      let heroSearch = document.querySelector("input#heroSearch").value.replace(/[-&\/\\#,+()$@|~%!.'":;*?<>{}]/,'');
+      let resultDisplay = document.querySelector("div#result");
+      
+      let Url = `superheroes.php?query= ${heroSearch}`;
+      fetch(Url, {method : 'GET'})
+      .then(response => response.text())
+      .then(ele => {
+        resultDisplay.innerHTML = '';
+        resultDisplay.innerHTML = ele; 
+    })
+  
+});
 
-    var loadSearchBtn = document.querySelector('#loadSearchBtn');
-    var httpRequest;
-  
-    loadSearchBtn.addEventListener('click', function(element) {
-      element.preventDefault();
-  
-      httpRequest = new XMLHttpRequest();
-  
-      // GET Request
-      var url = "superheroes.php";
-      httpRequest.onreadystatechange = searchButton;
-      httpRequest.open('GET', url);
-      httpRequest.send();
-    });
-  
-    function searchButton() {
-      if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {
-          var response = httpRequest.responseText;
-          var superheroes = document.querySelector('#superheroes');
-          superheroes.innerHTML = response;
-        } else {
-          alert('superheroes');
-        }
-      }
-    }
-  
-  };
+});
 
